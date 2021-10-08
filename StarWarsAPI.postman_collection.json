@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "c88e28d8-c62a-4148-a73a-46ff2073411d",
+		"name": "StarWarsAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "StarWars People - Page 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"heightCount\",0)\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let resultsCount = pm.response.json().results.length\r",
+							"//console.log(resultsCount);\r",
+							"const response = pm.response.json()\r",
+							"let heightCount = pm.collectionVariables.get(\"heightCount\")\r",
+							"\r",
+							"    for(let i = 0; i < resultsCount; i++){\r",
+							"        if (response.results[i].height > 200){\r",
+							"            heightCount = heightCount + 1;\r",
+							"            //console.log(response.results[i].name);\r",
+							"            console.log(response.results[i].height);\r",
+							"            //console.log(response.results[i]);\r",
+							"        }\r",
+							"    }\r",
+							"console.log(\"heightCount: \" + heightCount);\r",
+							"pm.collectionVariables.set(\"heightCount\",heightCount)\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people checked equals to 82\", function () {\r",
+							"    pm.expect(pm.response.json().count).to.be.equal(82,\"total number of people checked equals\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/?page=1",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StarWars People - Page 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let resultsCount = pm.response.json().results.length\r",
+							"const response = pm.response.json()\r",
+							"let heightCount = pm.collectionVariables.get(\"heightCount\")\r",
+							"\r",
+							"    for(let i = 0; i < resultsCount; i++){\r",
+							"        if (response.results[i].height > 200){\r",
+							"            heightCount = heightCount + 1;\r",
+							"            console.log(response.results[i].height);\r",
+							"        }\r",
+							"    }\r",
+							"console.log(\"heightCount: \" + heightCount);\r",
+							"pm.collectionVariables.set(\"heightCount\",heightCount)\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people checked equals to 82\", function () {\r",
+							"    pm.expect(pm.response.json().count).to.be.equal(82,\"total number of people checked equals\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/?page=2",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StarWars People - Page 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let resultsCount = pm.response.json().results.length\r",
+							"const response = pm.response.json()\r",
+							"let heightCount = pm.collectionVariables.get(\"heightCount\")\r",
+							"\r",
+							"    for(let i = 0; i < resultsCount; i++){\r",
+							"        if (response.results[i].height > 200){\r",
+							"            heightCount = heightCount + 1;\r",
+							"            console.log(response.results[i].height);\r",
+							"        }\r",
+							"    }\r",
+							"console.log(\"heightCount: \" + heightCount);\r",
+							"pm.collectionVariables.set(\"heightCount\",heightCount)\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people checked equals to 82\", function () {\r",
+							"    pm.expect(pm.response.json().count).to.be.equal(82,\"total number of people checked equals\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/?page=3",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StarWars People - Page 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let resultsCount = pm.response.json().results.length\r",
+							"const response = pm.response.json()\r",
+							"let heightCount = pm.collectionVariables.get(\"heightCount\")\r",
+							"\r",
+							"    for(let i = 0; i < resultsCount; i++){\r",
+							"        if (response.results[i].height > 200){\r",
+							"            heightCount = heightCount + 1;\r",
+							"            console.log(response.results[i].height);\r",
+							"        }\r",
+							"    }\r",
+							"console.log(\"heightCount: \" + heightCount);\r",
+							"pm.collectionVariables.set(\"heightCount\",heightCount)\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people checked equals to 82\", function () {\r",
+							"    pm.expect(pm.response.json().count).to.be.equal(82,\"total number of people checked equals\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/?page=4",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StarWars People - Page 5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let resultsCount = pm.response.json().results.length\r",
+							"const response = pm.response.json()\r",
+							"let heightCount = pm.collectionVariables.get(\"heightCount\")\r",
+							"\r",
+							"    for(let i = 0; i < resultsCount; i++){\r",
+							"        if (response.results[i].height > 200){\r",
+							"            heightCount = heightCount + 1;\r",
+							"            console.log(response.results[i].height);\r",
+							"        }\r",
+							"    }\r",
+							"console.log(\"heightCount: \" + heightCount);\r",
+							"pm.collectionVariables.set(\"heightCount\",heightCount)\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people checked equals to 82\", function () {\r",
+							"    pm.expect(pm.response.json().count).to.be.equal(82,\"total number of people checked equals\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/?page=5",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StarWars People - Page 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let resultsCount = pm.response.json().results.length\r",
+							"const response = pm.response.json()\r",
+							"let heightCount = pm.collectionVariables.get(\"heightCount\")\r",
+							"\r",
+							"    for(let i = 0; i < resultsCount; i++){\r",
+							"        if (response.results[i].height > 200){\r",
+							"            heightCount = heightCount + 1;\r",
+							"            console.log(response.results[i].height);\r",
+							"        }\r",
+							"    }\r",
+							"console.log(\"heightCount: \" + heightCount);\r",
+							"pm.collectionVariables.set(\"heightCount\",heightCount)\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people checked equals to 82\", function () {\r",
+							"    pm.expect(pm.response.json().count).to.be.equal(82,\"total number of people checked equals\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/?page=6",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StarWars People - Page 7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let resultsCount = pm.response.json().results.length\r",
+							"const response = pm.response.json()\r",
+							"let heightCount = pm.collectionVariables.get(\"heightCount\")\r",
+							"\r",
+							"    for(let i = 0; i < resultsCount; i++){\r",
+							"        if (response.results[i].height > 200){\r",
+							"            heightCount = heightCount + 1;\r",
+							"            console.log(response.results[i].height);\r",
+							"        }\r",
+							"    }\r",
+							"console.log(\"heightCount: \" + heightCount);\r",
+							"pm.collectionVariables.set(\"heightCount\",heightCount)\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people checked equals to 82\", function () {\r",
+							"    pm.expect(pm.response.json().count).to.be.equal(82,\"total number of people checked equals\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/?page=7",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StarWars People - Page 8",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let resultsCount = pm.response.json().results.length\r",
+							"const response = pm.response.json()\r",
+							"let heightCount = pm.collectionVariables.get(\"heightCount\")\r",
+							"\r",
+							"    for(let i = 0; i < resultsCount; i++){\r",
+							"        if (response.results[i].height > 200){\r",
+							"            heightCount = heightCount + 1;\r",
+							"            console.log(response.results[i].height);\r",
+							"        }\r",
+							"    }\r",
+							"console.log(\"heightCount: \" + heightCount);\r",
+							"pm.collectionVariables.set(\"heightCount\",heightCount)\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people checked equals to 82\", function () {\r",
+							"    pm.expect(pm.response.json().count).to.be.equal(82,\"total number of people checked equals\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/?page=8",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StarWars People - Page 9",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let resultsCount = pm.response.json().results.length\r",
+							"const response = pm.response.json()\r",
+							"let heightCount = pm.collectionVariables.get(\"heightCount\")\r",
+							"\r",
+							"    for(let i = 0; i < resultsCount; i++){\r",
+							"        if (response.results[i].height > 200){\r",
+							"            heightCount = heightCount + 1;\r",
+							"            console.log(response.results[i].height);\r",
+							"        }\r",
+							"    }\r",
+							"console.log(\"heightCount: \" + heightCount);\r",
+							"pm.collectionVariables.set(\"heightCount\",heightCount)\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people checked equals to 82\", function () {\r",
+							"    pm.expect(pm.response.json().count).to.be.equal(82,\"total number of people checked equals\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify that the total number of people where height is greater than 200\", function(){\r",
+							"    pm.expect(pm.collectionVariables.get(\"heightCount\")).to.be.equal(10,\"total number of people where height is greater than 200\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/?page=9",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "heightCount",
+			"value": "0"
+		}
+	]
+}
